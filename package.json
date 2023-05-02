@@ -1,0 +1,26 @@
+{
+  "name": "futura-rabbitmq-nest",
+  "version": "0.2.2",
+  "description": "",
+  "main": "dist/index",
+  "types": "dist/index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf dist && tsc",
+    "prepublish": "npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@nestjs/common": "^9.4.0",
+    "amqplib": "^0.10.3",
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "@types/amqplib": "^0.10.1",
+    "@types/node": "^18.16.3",
+    "rimraf": "^5.0.0",
+    "typescript": "^5.0.4"
+  }
+}
