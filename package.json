@@ -2,7 +2,7 @@
   "name": "@futura-dev/rabbitmq-nest",
   "private": false,
   "version": "4.2.1",
-  "description": "",
+  "description": "Managing multiple RabbitMQ instances using NestJS modules",
   "main": "dist/index",
   "types": "dist/index",
   "scripts": {
@@ -13,7 +13,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@nestjs/common": "^9.4.0",
     "@typescript-eslint/eslint-plugin": "^5.59.2",
