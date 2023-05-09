@@ -12,7 +12,11 @@
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Futura",
+    "url": "https://github.com/futura-dev",
+    "email": "info@futura-dev.com"
+  },
   "license": "MIT",
   "dependencies": {
     "@nestjs/common": "^9.4.0",
