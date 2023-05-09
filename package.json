@@ -1,20 +1,28 @@
 {
-  "name": "futura-rabbitmq-nest",
-  "version": "0.2.2",
+  "name": "@futura-dev/rabbitmq-nest",
+  "private": false,
+  "version": "4.2.0",
   "description": "",
   "main": "dist/index",
   "types": "dist/index",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf dist && tsc",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@nestjs/common": "^9.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.2",
+    "@typescript-eslint/parser": "^5.59.2",
     "amqplib": "^0.10.3",
+    "eslint": "^8.39.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.8",
     "rxjs": "^7.8.1"
   },
   "devDependencies": {
