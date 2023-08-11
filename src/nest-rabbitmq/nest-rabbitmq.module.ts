@@ -2,7 +2,18 @@ import { DynamicModule, Module } from '@nestjs/common';
 import * as amq from 'amqplib';
 import { NestRabbitmqService } from './nest-rabbitmq.service';
 
-type NestRabbitmqOptions = {
+type SubscriberStrategyOneByOne = {
+  mode: 'one-by-one',
+  delay: number,
+}
+type SubscriberStrategyAll = {
+  mode: 'all'
+}
+
+export type SubscriberStrategy = SubscriberStrategyOneByOne | SubscriberStrategyAll
+
+type NestRabbitmqOptionsPublisher = {
+  mode: 'publish';
   RABBIT_USER: string;
   RABBIT_PASSWORD: string;
   RABBIT_HOST: string;
@@ -10,8 +21,21 @@ type NestRabbitmqOptions = {
   RABBIT_QUEUE: string;
   rabbit_options?: amq.Options.AssertQueue;
   scope?: string;
-  mode: 'subscribe' | 'publish';
-};
+}
+type NestRabbitmqOptionsSubscriber = {
+  mode: 'subscribe';
+  RABBIT_USER: string;
+  RABBIT_PASSWORD: string;
+  RABBIT_HOST: string;
+  RABBIT_PORT: string;
+  RABBIT_QUEUE: string;
+  rabbit_options?: amq.Options.AssertQueue;
+  scope?: string;
+  strategy: SubscriberStrategy
+}
+
+export type NestRabbitmqOptions = NestRabbitmqOptionsPublisher | NestRabbitmqOptionsSubscriber
+
 
 @Module({})
 export class NestRabbitmqModule {
@@ -29,6 +53,7 @@ export class NestRabbitmqModule {
             options.rabbit_options,
             options.mode,
             options.scope,
+            options.mode === 'subscribe' ? options.strategy : null
           );
         },
       },
