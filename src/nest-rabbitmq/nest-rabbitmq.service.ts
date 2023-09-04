@@ -60,8 +60,8 @@ export class NestRabbitmqService<M> implements OnModuleInit {
           channel
             .assertQueue(this.QUEUE, this.options ?? {})
             .then(async (queue_assertion) => {
-              this.logger.log('connected in ', this.mode, 'mode to', this.rabbitUri);
-              this.logger.log('configured', `"${queue_assertion.queue}"`);
+              this.logger.log(`connected in "${this.mode}" mode to ${this.rabbitUri}`);
+              this.logger.log(`configured "${queue_assertion.queue}"`);
               resolve();
               // resolve({ ...options, mode: options.mode, channel: channel, queue_assertion: queue_assertion });
               // register listener
