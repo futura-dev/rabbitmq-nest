@@ -39,7 +39,6 @@ export class NestRabbitmqService<M> implements OnModuleInit {
     scope: string | undefined,
     strategy: SubscriberStrategy | null
   ) {
-    console.log('CREATED');
     //
     this.RABBIT_USER = RABBIT_USER;
     this.RABBIT_PASSWORD = RABBIT_PASSWORD;
@@ -56,15 +55,13 @@ export class NestRabbitmqService<M> implements OnModuleInit {
   async onModuleInit(): Promise<void> {
     return new Promise((resolve) => {
       amq.connect(this.rabbitUri).then((connection) => {
-        this.logger.log('configure', this.mode, 'connection ok');
+
         connection.createChannel().then((channel) => {
-          this.logger.log('configure', this.mode, 'channel ok');
           channel
             .assertQueue(this.QUEUE, this.options ?? {})
             .then(async (queue_assertion) => {
-
-              this.logger.log('configure', this.mode,'assertion ok', queue_assertion.queue);
-              this.logger.log('connected to rabbit');
+              this.logger.log('connected in ', this.mode, 'mode to', this.rabbitUri);
+              this.logger.log('configured', `"${queue_assertion.queue}"`);
               resolve();
               // resolve({ ...options, mode: options.mode, channel: channel, queue_assertion: queue_assertion });
               // register listener
