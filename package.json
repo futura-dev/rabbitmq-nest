@@ -34,7 +34,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/futura-dev/rabbitmq-nest"
+    "url": "git+https://github.com/futura-dev/rabbitmq-nest.git"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^19.8.1",
