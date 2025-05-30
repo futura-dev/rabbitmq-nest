@@ -40,7 +40,7 @@
   "devDependencies": {
     "@commitlint/config-conventional": "^19.8.1",
     "@futura-dev/contributing-gen": "^2.1.0",
-    "@futura-dev/cosmodrome": "^1.4.1",
+    "@futura-dev/cosmodrome": "^1.5.0-alpha.4",
     "@futura-dev/cosmofactory": "^0.4.0",
     "@futura-dev/cosmokeeper": "^0.3.3",
     "@futura-dev/eslint-config-typescript": "^0.1.3",
