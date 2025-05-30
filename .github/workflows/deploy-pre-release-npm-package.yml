@@ -1,7 +1,8 @@
 name: Publish Package to npmjs
+
 on:
   release:
-    types: [released]
+    types: [prereleased]
 
 jobs:
   build:
@@ -11,10 +12,10 @@ jobs:
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v3
         with:
-          node-version: '18.16.0'
+          node-version: '18.20.4'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm ci
-      - run: npm run build 
-      - run: npm publish
+      - run: npm i
+      - run: npm run build
+      - run: npm publish --access public --tag alpha
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
