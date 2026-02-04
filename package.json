@@ -25,7 +25,7 @@
     "amqplib": "^0.10.8",
     "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-prettier": "^4.2.5",
     "prettier": "^2.8.8",
     "rxjs": "^7.8.2"
   },
